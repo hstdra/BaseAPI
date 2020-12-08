@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BaseAPI.DomainModels.RoomAggregate;
 using FastO.Core.Persistence;
+using FastO.Helper.Api;
 using FastO.Infrastructure.CQRS.Queries;
 using System;
 using System.Collections.Generic;
@@ -34,8 +35,9 @@ namespace BaseAPI.Cqrs.Queries
             public override async Task<IEnumerable<Result>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var rooms = await _repository.GetAllAsync();
-                //return _mapper.Map<IEnumerable<Room>, IEnumerable<Result>>(rooms);
-                return rooms.Select(room => _mapper.Map<Room, Result>(room)).ToList();
+
+                return rooms.Select(Mapping.Map<Room, Result>).ToList();
+                //return rooms.Select(room => _mapper.Map<Room, Result>(room)).ToList();
             }
         }
     }

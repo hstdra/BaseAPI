@@ -1,6 +1,5 @@
 ﻿using FastO.Core.DDD;
 using System;
-using System.Threading.Tasks;
 
 namespace FastO.Core.Persistence
 {

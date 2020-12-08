@@ -2,6 +2,7 @@
 using BaseAPI.Cqrs.Queries;
 using FastO.Core.CQRS.Commands;
 using FastO.Core.CQRS.Queries;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace BaseAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType(typeof(CreateRoom.Result), StatusCodes.Status201Created)]
         public async Task<ActionResult<CreateRoom.Result>> CreateRoom([FromBody] CreateRoom.Command command)
         {
             var result = await _commandBus.Send(command);

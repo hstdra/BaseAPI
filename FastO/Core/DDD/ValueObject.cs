@@ -1,6 +1,6 @@
 ﻿namespace FastO.Core.DDD
 {
-    public class ValueObject
+    public abstract class ValueObject
     {
     }
 }

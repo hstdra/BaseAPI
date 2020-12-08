@@ -1,12 +1,11 @@
 using BaseAPI.Extensions;
-using FastO.Helper.Mapper;
+using FastO.Helper.Api;
 using FastO.Helper.Swagger;
 using FastO.Infrastructure.CQRS;
 using FastO.Infrastructure.Persistence;
 using FastO.Infrastructure.Persistence.MysqlEfRepositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +27,7 @@ namespace BaseAPI
             services.AddHttpContextAccessor();
             services.AddControllers();
 
+            services.AddApi(typeof(Startup));
             services.AddCQRS(typeof(Startup));
             services.AddMapper(new AppProfile());
             services.AddPrebuiltSwagger(Configuration);
@@ -58,6 +58,7 @@ namespace BaseAPI
             });
 
             app.UsePrebuiltSwagger(Configuration);
+            app.UseApi(Configuration);
         }
     }
 }
