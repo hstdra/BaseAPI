@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace FastO.Core
+namespace FastO.Core.DDD
 {
-    public class Entity
+    public abstract class Entity
     {
-        [Key]
-        public Guid Id { get; set; }
+        public virtual Guid Id { get; set; }
     }
 }

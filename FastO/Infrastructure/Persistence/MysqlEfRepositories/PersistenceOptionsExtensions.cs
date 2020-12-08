@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FastO.Core.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FastO.Infrastructure.Persistence.MysqlEfRepositories
@@ -9,34 +10,14 @@ namespace FastO.Infrastructure.Persistence.MysqlEfRepositories
             (this PersistenceOptions options, IServiceCollection services, string connectionString)
             where TContext : DbContext
         {
+            MysqlOptions.DbContextType = typeof(TContext);
+            
             services.AddDbContext<TContext>(options =>
             {
                 options.UseMySQL(connectionString);
             });
-
-            MysqlOptions.DbContextType = typeof(TContext);
-            options.QueryType = typeof(MysqlEfQueryRepository<>);
-            options.CommandType = typeof(MysqlEfCommandRepository<>);
-
-            return options;
-        }
-
-        public static PersistenceOptions UseMysqlEntityFrameworkQuerySideOnly<TContext>
-            (this PersistenceOptions options)
-            where TContext : DbContext
-        {
-            MysqlOptions.DbContextType = typeof(TContext);
-            options.QueryType = typeof(MysqlEfQueryRepository<>);
-
-            return options;
-        }
-
-        public static PersistenceOptions UseMysqlEntityFrameworkCommandSideOnly<TContext>
-            (this PersistenceOptions options)
-            where TContext : DbContext
-        {
-            MysqlOptions.DbContextType = typeof(TContext);
-            options.CommandType = typeof(MysqlEfCommandRepository<>);
+            services.AddScoped(typeof(IRepository<>), typeof(MysqlEfRepository<>));
+            services.AddScoped<IUnitOfWork, MysqlEfUnitOfWork>();
 
             return options;
         }

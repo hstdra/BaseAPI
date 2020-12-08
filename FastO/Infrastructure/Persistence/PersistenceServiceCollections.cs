@@ -9,7 +9,6 @@ namespace FastO.Infrastructure.Persistence
         {
             var options = new PersistenceOptions();
             setupAction(options);
-            options.AddServices(services);
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace FastO.Core
+﻿namespace FastO.Core.DDD
 {
-    public class Aggregate : Entity
+    public abstract class Aggregate : Entity
     {
     }
 }

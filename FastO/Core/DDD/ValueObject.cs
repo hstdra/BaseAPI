@@ -1,4 +1,4 @@
-﻿namespace FastO.Core
+﻿namespace FastO.Core.DDD
 {
     public class ValueObject
     {

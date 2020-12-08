@@ -1,5 +1,6 @@
-﻿using BaseAPI.Domain.RoomAggregate;
-using BaseAPI.Queries;
+﻿using BaseAPI.Cqrs.Commands;
+using BaseAPI.Cqrs.Queries;
+using FastO.Core.CQRS.Commands;
 using FastO.Core.CQRS.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace BaseAPI.Controllers
     public class RoomController : ControllerBase
     {
         private readonly IQueryBus _queryBus;
+        private readonly ICommandBus _commandBus;
 
-        public RoomController(IQueryBus queryBus)
+        public RoomController(IQueryBus queryBus, ICommandBus commandBus)
         {
             _queryBus = queryBus;
+            _commandBus = commandBus;
         }
 
         /// <summary>
@@ -23,11 +26,23 @@ namespace BaseAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Room>>> GetRooms()
+        public async Task<ActionResult<IEnumerable<GetAllRooms.Result>>> GetRooms()
         {
             var result = await _queryBus.Send(new GetAllRooms.Query());
 
             return Ok(result);
+        }
+
+        /// <summary>
+        /// CreateRoom
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult<CreateRoom.Result>> CreateRoom([FromBody] CreateRoom.Command command)
+        {
+            var result = await _commandBus.Send(command);
+
+            return Created(string.Empty, result);
         }
     }
 }
