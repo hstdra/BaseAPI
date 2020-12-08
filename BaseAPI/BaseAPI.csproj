@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>4411b995-68e0-4fec-85ea-53f0b90f0bfe</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <!--<DocumentationFile>bin\BaseAPI.xml</DocumentationFile>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />-->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <!--<PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FastO\FastO.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseAPI", "BaseAPI\BaseAPI.csproj", "{F2B1167E-597C-4276-839D-B57BBB133C19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastO", "FastO\FastO.csproj", "{A096E0E7-7A73-477A-84DC-1CAFADAEDAC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2B1167E-597C-4276-839D-B57BBB133C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2B1167E-597C-4276-839D-B57BBB133C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2B1167E-597C-4276-839D-B57BBB133C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B1167E-597C-4276-839D-B57BBB133C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A096E0E7-7A73-477A-84DC-1CAFADAEDAC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A096E0E7-7A73-477A-84DC-1CAFADAEDAC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A096E0E7-7A73-477A-84DC-1CAFADAEDAC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A096E0E7-7A73-477A-84DC-1CAFADAEDAC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E97F2329-6895-4393-B572-7AB50E2488D9}
+	EndGlobalSection
+EndGlobal
